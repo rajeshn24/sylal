@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYLAL — Contemporary Fashion</title>
+    <!-- Google Fonts for Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: #FDFBF7;
+            --text-color: #1A1A1A;
+            --accent-color: #C5A059;
+            --gray-light: #EFECE6;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 5%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+        }
+
+        .nav-icons i {
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-icons i:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop') no-repeat center center/cover;
+            color: #fff;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content span {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: #fff;
+            color: var(--text-color);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 1px solid #fff;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #fff;
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 100px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-content {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px 25px;
+            backdrop-filter: blur(5px);
+        }
+
+        .category-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .category-content span {
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 80px 5%;
+            background-color: var(--gray-light);
+            text-align: center;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .newsletter form {
+            display: flex;
+            gap: 10px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .newsletter input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 1px solid #ccc;
+            background: #fff;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .newsletter button {
+            padding: 14px 25px;
+            background-color: var(--text-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .newsletter button:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 5% 30px;
+            background-color: #1A1A1A;
+            color: #fff;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #aaa;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li:hover {
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media(max-width: 768px) {
+            .nav-links {
+                display: none; /* Can be expanded with JS mobile menu later */
+            }
+            .hero-content h1 {
+                font-size: 40px;
+            }
+            .newsletter form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <a href="https://sylal.com" class="logo">SYLAL</a>
+        <ul class="nav-links">
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Collection</a></li>
+            <li><a href="#">Editorial</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass" title="Search"></i>
+            <i class="fa-regular fa-heart" title="Wishlist"></i>
+            <i class="fa-solid fa-bag-shopping" title="Cart"></i>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span>Autumn / Winter 2026</span>
+            <h1>Elegance Defined By Simplicity</h1>
+            <p>Discover the new collection crafted with sustainable fabrics and timeless silhouettes tailored for the modern wardrobe.</p>
+            <a href="#" class="btn">Explore Collection</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2 class="section-title">Curated Essentials</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" alt="Ready to Wear">
+                <div class="category-content">
+                    <h3>Ready To Wear</h3>
+                    <span>Shop Now</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop" alt="Outerwear">
+                <div class="category-content">
+                    <h3>Outerwear</h3>
+                    <span>Shop Now</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop" alt="Accessories">
+                <div class="category-content">
+                    <h3>Accessories</h3>
+                    <span>Shop Now</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Join the SYLAL World</h2>
+            <p>Subscribe to receive updates on private sales, new arrivals, and editorial content.</p>
+            <form action="#" method="POST">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>SYLAL</h4>
+                <ul>
+                    <li>Our Story</li>
+                    <li>Sustainability</li>
+                    <li>Careers</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li>Shipping & Returns</li>
+                    <li>Track Order</li>
+                    <li>Size Guide</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Pinterest</li>
+                    <li>Facebook</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SYLAL.com. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
